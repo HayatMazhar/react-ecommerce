@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
+import axios from 'axios';
+import Header from './components/_shared/layout/Header.js';
+import Banner from './components/_shared/layout/Banner.js';
+import Footer from './components/_shared/layout/Footer.js';
+import Home from './components/Core/Home.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+
+      <div classname="App">
+        <Header />
+        <Banner />
+        <Home />
+        <Footer />
+      </div>
+    );
+  }
 }
-
-export default App;
+export default App
