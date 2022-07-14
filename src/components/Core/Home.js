@@ -11,9 +11,8 @@ export default class Home extends Component {
 
     componentDidMount() {
         //calling rest api for products data
-        axios.get('https://dummyjson.com/products')
+        axios.get('https://dummyjson.com/products/category/smartphones')
             .then(res => {
-                debugger;
                 // fetch 5 random products from the data
                 const products = res.data.products.slice(1, 9);
                 // const products = res.data.products;
@@ -32,7 +31,6 @@ export default class Home extends Component {
               </header>
               <div className="row">
                 {this.state.products.map((result) => {
-                  debugger;
                   return (
                     <div className="col-md-3">
                       <div href="#" className="card card-product-grid">

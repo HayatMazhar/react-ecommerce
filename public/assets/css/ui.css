@@ -1200,7 +1200,7 @@ a[class*=card]:hover .title {
 
 .menu-category {
   margin: 0;
-  padding: 0;
+  padding: 9px;
 }
 .menu-category li {
   position: relative;

@@ -1,19 +1,35 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 export default class BannerNav extends Component {
+
+  state = {
+    categories: []
+  }
+
+  componentDidMount() {
+    //calling rest api for products data
+    axios.get('https://dummyjson.com/products/categories')
+      .then(res => {
+        const categories = res.data.slice(0, 7);
+        // const products = res.data.products;
+        this.setState({ categories });
+      })
+
+  }
+
+
   render() {
     return (
       <div><nav className="card">
-      <ul className="menu-category">
-        <li><a href="/">Best clothes</a></li>
-        <li><a href="/">Automobiles</a></li>
-        <li><a href="/">Home interior</a></li>
-        <li><a href="/">Electronics</a></li>
-        <li><a href="/">Technologies</a></li>
-        <li><a href="/">Digital goods</a></li>
-        <li><a href="/">Online goods</a></li>
-      </ul>
-    </nav></div>
+        <ul className="menu-category">
+          {this.state.categories.map((result) => {
+            return (
+              <li><a href="/">{result.toUpperCase()}</a></li>
+            )
+          })}
+        </ul>
+      </nav></div>
     )
   }
 }
